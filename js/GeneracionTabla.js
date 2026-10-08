@@ -19,7 +19,7 @@ export function GenerarTabla(filas, columnas) {
     let j = 1;
     let tabla = "<table>";
 
-    for (i = 1, i <= filas+1 ; i++;) {
+    for (i = 1; i <= filas+1 ; i++) {
         tabla = tabla + "<tr>";
         if (i !== 1) {
             tabla = tabla + "<td>" + i + "</td>";
