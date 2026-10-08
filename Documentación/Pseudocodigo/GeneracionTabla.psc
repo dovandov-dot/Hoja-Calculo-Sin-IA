@@ -1,10 +1,23 @@
 Funcion letras <- ConvertirNumeroLetra ( numeroColumna )
+	Definir letrasColumnas, letras Como Texto
+	Definir letra Como Caracter
+	Definir pocisionLetra Como Entero
+	letrasColumnas <- "ABCDEFGHIJKLMNOPQRSTUVWXYZ" //Cumpliria la funcion de un array
+	letras <- ""
+	letra <- ''
+	pocisionLetra <- 0
 	
+	Mientras numeroColumna <> 0  Hacer
+		pocisionLetra <- (numeroColumna-1)%26
+		numeroColumna <- Trunc((numeroColumna-1)/26)
+		letra <- Subcadena(letrasColumnas, pocisionLetra+1, pocisionLetra+1)
+		letras <- Concatenar(letra, letras)
+	Fin Mientras
 Fin Funcion
 
 SubProceso GenerarTabla(filas, columnas)
 	Definir i, j Como Entero
-	i <- 0
+	i <- 1
 	j <- 1
 	
 	// se pone un <table>
@@ -23,7 +36,7 @@ SubProceso GenerarTabla(filas, columnas)
 				Escribir Sin Saltar "--","Celda", "--"
 			SiNo
 				//Se genera un <th>Numero de columna< /th>
-				Escribir Sin Saltar "		", j, " 	"
+				Escribir Sin Saltar "		",ConvertirNumeroLetra(j), " 	"
 			Fin Si
 		Fin Para
 		// se cierra el la fila </tr>
@@ -35,7 +48,8 @@ FinSubProceso
 Algoritmo GeneracionTabla
 	Definir FILAS, COLUMNAS Como Entero
 	FILAS <- 30
-	COLUMNAS <- 19
+	COLUMNAS <- 78
 	
 	GenerarTabla(FILAS, COLUMNAS)
+	
 FinAlgoritmo
