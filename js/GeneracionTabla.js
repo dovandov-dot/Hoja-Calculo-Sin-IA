@@ -24,11 +24,11 @@ export function GenerarTabla(filas, columnas) {
         if (i !== 1) {
             tabla = tabla + "<td>" + (i-1) + "</td>";
         } else{
-            tabla = tabla + "<th>indice</th>"
+            tabla = tabla + "<th></th>"
         };
         for (j = 1; j <= columnas; j++) {
             if (i !== 1) {
-                tabla = tabla + `<td id="${ConvertirNumeroLetra(j)+(i-1)}"></td>`
+                tabla = tabla + `<td contenteditable='true' id="${ConvertirNumeroLetra(j)+(i-1)}" class="editable"></td>`
             } else {
                 tabla = tabla + "<th>"+ ConvertirNumeroLetra(j) + "</th>"
             };
