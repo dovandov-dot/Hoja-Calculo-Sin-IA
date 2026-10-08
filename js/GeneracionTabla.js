@@ -28,7 +28,7 @@ export function GenerarTabla(filas, columnas) {
         };
         for (j = 1; j <= columnas; j++) {
             if (i !== 1) {
-                tabla = tabla + "<td>celda</td>"
+                tabla = tabla + `<td id="${ConvertirNumeroLetra(j)+(i-1)}"></td>`
             } else {
                 tabla = tabla + "<th>"+ ConvertirNumeroLetra(j) + "</th>"
             };
