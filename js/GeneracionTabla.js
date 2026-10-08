@@ -10,8 +10,31 @@ export function ConvertirNumeroLetra(numeroColumna) {
         letra = letrasColumnas[pocisionLetra];
         letras = letra + letras;
     };
+
+    return letras;
 };
 
 export function GenerarTabla(filas, columnas) {
-    
+    let i = 1;
+    let j = 1;
+    let tabla = "<table>";
+
+    for (i = 1, i <= filas+1 ; i++;) {
+        tabla = tabla + "<tr>";
+        if (i !== 1) {
+            tabla = tabla + "<td>" + i + "</td>";
+        } else{
+            tabla = tabla + "<th>indice</th>"
+        };
+        for (j = 1; j <= columnas; j++) {
+            if (i !== 1) {
+                tabla = tabla + "<td>celda</td>"
+            } else {
+                tabla = tabla + "<th>"+ ConvertirNumeroLetra(j) + "</th>"
+            };
+        };
+        tabla = tabla + "</tr>"
+    };
+
+    document.getElementById("TablaHojaCalculo").innerHTML = tabla
 }
