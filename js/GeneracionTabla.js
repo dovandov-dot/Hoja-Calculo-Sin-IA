@@ -36,5 +36,6 @@ export function GenerarTabla(filas, columnas) {
         tabla = tabla + "</tr>"
     };
 
-    document.getElementById("TablaHojaCalculo").innerHTML = tabla
+    tabla = tabla + "</table>"
+    return tabla
 }
