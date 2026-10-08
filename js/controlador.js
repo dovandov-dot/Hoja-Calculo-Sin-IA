@@ -1,4 +1,4 @@
-import { GenerarTabla } from "./GeneracionTabla";
+import {GenerarTabla} from "./GeneracionTabla.js";
 
 const filas = 30;
 const columnas = 19;
