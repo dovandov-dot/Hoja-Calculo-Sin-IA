@@ -12,6 +12,9 @@ function InsetarDatosEstructuraDatos(e){
     let valor = document.getElementById(id).innerText
     console.log(id)
     console.log(valor)
+
+    TablaCalculo.ActualizarValoresCelda(id, valor, null)
+    console.log(TablaCalculo.ObtenerDatosCelda(id))
   }
 
 }
@@ -21,7 +24,7 @@ if (espacioTabla) {
   espacioTabla.innerHTML = tabla
   //console.log(tabla)
 
-espacioTabla.addEventListener("click", InsetarDatosEstructuraDatos)
+espacioTabla.addEventListener("input", InsetarDatosEstructuraDatos)
 
 
 
