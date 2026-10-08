@@ -12,15 +12,24 @@ SubProceso GenerarTabla(filas, columnas)
 		//Aqui se genera un <tr>
 		Si i <> 1 Entonces
 			//Se genera un <td>Numero de fila</td>
-			Escribir i-1
+			Escribir Sin Saltar i-1
 		SiNo
 			//Se genera un <th>Indice< /th>
-			Escribir "indice"
+			Escribir Sin Saltar "indice"
 		Fin Si
 		Para j <- 1 Hasta columnas Con Paso 1 Hacer
-			
+			Si i <> 1 Entonces
+				//Se genera un <td>Numero de fila</td>
+				Escribir Sin Saltar "--","Celda", "--"
+			SiNo
+				//Se genera un <th>Numero de columna< /th>
+				Escribir Sin Saltar "		", j, " 	"
+			Fin Si
 		Fin Para
+		// se cierra el la fila </tr>
+		Escribir ""
 	Fin Para
+	// se pone un </table>
 FinSubProceso
 
 Algoritmo GeneracionTabla
