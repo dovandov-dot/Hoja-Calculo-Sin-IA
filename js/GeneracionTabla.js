@@ -22,7 +22,7 @@ export function GenerarTabla(filas, columnas) {
     for (i = 1; i <= filas+1 ; i++) {
         tabla = tabla + "<tr>";
         if (i !== 1) {
-            tabla = tabla + "<td>" + i + "</td>";
+            tabla = tabla + "<td>" + (i-1) + "</td>";
         } else{
             tabla = tabla + "<th>indice</th>"
         };
