@@ -7,7 +7,14 @@ const columnas = 19;
 const espacioTabla = document.getElementById("TablaHojaCalculo")
 
 function MostrarValorIngresado(e){
-
+  if (e.target.id && (TablaCalculo.ObtenerDatosCelda(e.target.id) !== null)) {
+    const id = e.target.id
+    const celda = TablaCalculo.ObtenerDatosCelda(id)
+    const valor = document.getElementById(id).innerHTML = celda.datosIngresados
+    console.log(valor, celda)
+  }else{
+    const valor = document.getElementById(e.target.id).innerHTML = ""
+  };
 }
 
 function DesenforcarCelda(e){
@@ -23,7 +30,7 @@ function InsetarDatosEstructuraDatos(e){
   if(e.target.id){
     const id = e.target.id;
     const valor = document.getElementById(id).innerText.trim();
-    if (!valor[0] === "=") {
+    if (valor[0] !== "=") {
       TablaCalculo.ActualizarValoresCelda(id, valor, null);
     }else{
       const nuevaFormula = valor.substring(1)
@@ -40,7 +47,7 @@ if (espacioTabla) {
   espacioTabla.innerHTML = tabla;
   //console.log(tabla)
 
-  espacioTabla.addEventListener("focus", MostrarValorIngresado)
+  espacioTabla.addEventListener("focus", MostrarValorIngresado, true)
   espacioTabla.addEventListener("keydown", DesenforcarCelda);
   espacioTabla.addEventListener("blur", InsetarDatosEstructuraDatos, true);
 }
