@@ -6,20 +6,31 @@ const columnas = 19;
 
 const espacioTabla = document.getElementById("TablaHojaCalculo")
 
+function MostrarValorIngresado(e){
+
+}
+
 function DesenforcarCelda(e){
   if(e.target.id){
     if (e.code === "Enter") {
       e.preventDefault();
       e.target.blur();
     }
-  };DesenforcarCelda
+  };
 };
 
 function InsetarDatosEstructuraDatos(e){
   if(e.target.id){
     const id = e.target.id;
     const valor = document.getElementById(id).innerText.trim();
-    TablaCalculo.ActualizarValoresCelda(id, valor, null);
+    if (!valor[0] === "=") {
+      TablaCalculo.ActualizarValoresCelda(id, valor, null);
+    }else{
+      const nuevaFormula = valor.substring(1)
+      const resutaldoFormula = eval(nuevaFormula)
+      TablaCalculo.ActualizarValoresCelda(id, valor, resutaldoFormula);
+      const nuevoValor = document.getElementById(id).innerText = resutaldoFormula
+    }
     console.log(TablaCalculo.ObtenerDatosCelda(id));     
   };
 }
@@ -29,6 +40,7 @@ if (espacioTabla) {
   espacioTabla.innerHTML = tabla;
   //console.log(tabla)
 
+  espacioTabla.addEventListener("focus", MostrarValorIngresado)
   espacioTabla.addEventListener("keydown", DesenforcarCelda);
   espacioTabla.addEventListener("blur", InsetarDatosEstructuraDatos, true);
 }

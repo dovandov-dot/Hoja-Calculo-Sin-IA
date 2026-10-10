@@ -6,7 +6,6 @@ Funcion resutaldo <- Eval(formula)
 Fin Funcion
 
 SubProceso EcontrarValorCelda(formula)
-	
 FinSubProceso
 
 Funcion resultado <- ValidarFormula(formula)
