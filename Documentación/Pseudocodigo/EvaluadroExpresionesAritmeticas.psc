@@ -6,6 +6,13 @@ Funcion resutaldo <- Eval(formula)
 Fin Funcion
 
 SubProceso EcontrarValorCelda(formula)
+	//Primero recorreriamos el objeto tabla 
+	//Se almacena en un diccionario la clave y su valor 
+	//Con array anidado, hacemos la simulacion de volver a  crear la tabla
+	//Si no existe la clave en el diccionario: Ingresamos al Diccionario la clave y su valor como 0
+	//Si existe la clave en el diccinario: no se hace nada y se continua con la siguiente celda. 
+	//Con otra función que se llame asi misma se crean constantes: cosnt clave = valor 
+	
 FinSubProceso
 
 Funcion resultado <- ValidarFormula(formula)
