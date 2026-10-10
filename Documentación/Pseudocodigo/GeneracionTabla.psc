@@ -15,7 +15,7 @@ Funcion letras <- ConvertirNumeroLetra ( numeroColumna )
 	Fin Mientras
 Fin Funcion
 
-SubProceso GenerarTabla(filas, columnas)
+Funcion tabla <- GenerarTabla(filas, columnas)
 	Definir i, j Como Entero
 	i <- 1
 	j <- 1
@@ -47,9 +47,11 @@ FinSubProceso
 
 Algoritmo GeneracionTabla
 	Definir FILAS, COLUMNAS Como Entero
+	Definir TABLA Como Texto
 	FILAS <- 30
 	COLUMNAS <- 78
+	TABLA <- ""
 	
-	GenerarTabla(FILAS, COLUMNAS)
+	TABLA <- GenerarTabla(FILAS, COLUMNAS)
 	
 FinAlgoritmo

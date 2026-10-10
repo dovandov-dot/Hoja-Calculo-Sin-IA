@@ -5,7 +5,7 @@ Funcion resutaldo <- Eval(formula)
 	
 Fin Funcion
 
-SubProceso EcontrarValorCelda(formula)
+Funcion diccionaro <- EcontrarValorCelda(formula)
 	//Primero recorreriamos el objeto tabla 
 	//Se almacena en un diccionario la clave y su valor 
 	//Con array anidado, hacemos la simulacion de volver a  crear la tabla
@@ -16,19 +16,21 @@ SubProceso EcontrarValorCelda(formula)
 FinSubProceso
 
 Funcion resultado <- ValidarFormula(formula)
-	Definir resutaldo como Texto
-	resutaldo <- ""
+	Definir resutaldo Como Real
+	resutaldo <- 0.0
+	Dimension diccionaro[200]
 	Si Subcadena(formula, 1,1) = "=" Entonces
-		EcontrarValorCelda(formula)
+		diccionaro <- EcontrarValorCelda(formula)
 		resultado <- Eval(Subcadena(formula, 2,Longitud(formula)))
 	Fin Si
 	
 Fin Funcion
 
 Algoritmo EvaluadroExpresionesAritmeticass
-	Definir formula, resutaldo Como Texto
+	Definir formula Como Texto
+	Definir resultado Como Real
 	formula <- ""
-	resutaldo <- ""
+	resutaldo <- 0.0
 	
 	Leer formula
 	
